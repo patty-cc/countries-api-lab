@@ -48,7 +48,22 @@ var layOutCountry = function(country) {
   div.appendChild(populationP);
   div.appendChild(capitalCityP);
   var center = {lat: country.latlng[0], lng: country.latlng[1]}
-  var mainMap = new MapWrapper(mapDiv, center, 5);
+  if (country.area >= 1000000) {
+    zoom = 1
+  }
+  if (country.area >= 750000) {
+    zoom = 2
+  }
+  if (country.area >= 80000) {
+    zoom = 3
+  }
+  if (country.area >= 12000) {
+    zoom = 4
+  }
+  if (country.area <= 8000) {
+    zoom = 5
+  }
+  var mainMap = new MapWrapper(mapDiv, center, zoom);
 }
 
 
