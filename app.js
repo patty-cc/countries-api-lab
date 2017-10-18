@@ -64,6 +64,7 @@ var layOutCountry = function(country) {
     zoom = 5
   }
   var mainMap = new MapWrapper(mapDiv, center, zoom);
+  mainMap.addMarker(center);
 }
 
 

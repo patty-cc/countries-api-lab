@@ -5,12 +5,12 @@ var MapWrapper = function(container, coords, zoom){
   })
 }
 
-// MapWrapper.prototype.addMarker = function(coords){
-//   var marker = new google.maps.Marker({
-//     position: coords,
-//     map: this.googleMap
-//   });
-// }
+MapWrapper.prototype.addMarker = function(coords){
+  var marker = new google.maps.Marker({
+    position: coords,
+    map: this.googleMap
+  });
+}
 //
 // MapWrapper.prototype.addClickEvent = function(){
 //   google.maps.event.addListener(this.googleMap, 'click', function(event){
