@@ -33,8 +33,11 @@ var addCountriesToDropDown = function(countries) {
 }
 
 var layOutCountry = function(country) {
+  var mapDiv = document.querySelector('#main-map')
+  mapDiv.innerHTML = "";
   var div = document.querySelector('#individual-country');
   div.innerHTML = "";
+  console.log(country.latlng[0]);
   var nameHeading = document.createElement("h1");
   nameHeading.innerText = country.name;
   var populationP = document.createElement("p");
@@ -44,6 +47,8 @@ var layOutCountry = function(country) {
   div.appendChild(nameHeading);
   div.appendChild(populationP);
   div.appendChild(capitalCityP);
+  var center = {lat: country.latlng[0], lng: country.latlng[1]}
+  var mainMap = new MapWrapper(mapDiv, center, 5);
 }
 
 
