@@ -48,24 +48,3 @@ var layOutCountry = function(country) {
 
 
 window.addEventListener('load', init);
-
-
-// var addCountriesToList = function(countries) {
-//   var ul = document.querySelector('#countries');
-//   for (var country of countries) {
-//     var li = document.createElement("li");
-//     li.innerText = country.name + ", " + country.population + " people live here!";
-//     ul.appendChild(li);
-//   }
-// }
-
-// var button = document.getElementById('btn');
-// button.addEventListener('click', function() {
-//   makeRequest(url);
-// })
-
-var clearButton = document.getElementById('clear');
-clearButton.addEventListener('click', function() {
-  var div = document.getElementById("individual-country");
-  div.innerHTML = "";
-})
