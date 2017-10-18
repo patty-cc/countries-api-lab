@@ -1,6 +1,7 @@
 var init = function () {
   var url = "https://restcountries.eu/rest/v2/all"
   makeRequest(url);
+  this.layOutCountry();
 }
 
 var makeRequest = function(url) {
@@ -33,8 +34,27 @@ var addCountriesToDropDown = function(countries) {
     div.appendChild(nameHeading);
     div.appendChild(populationP);
     div.appendChild(capitalCityP);
+    var jsonString = JSON.stringify(countries[this.value]);
+    localStorage.setItem('country', jsonString);
   });
 }
+
+var layOutCountry = function() {
+  var jsonString = localStorage.getItem('country');
+  var savedCountry = JSON.parse(jsonString);
+  if (!savedCountry) return;
+  var div = document.querySelector('#individual-country');
+  var nameHeading = document.createElement("h1");
+  nameHeading.innerText = savedCountry.name;
+  var populationP = document.createElement("p");
+  populationP.innerText = "The population of " + savedCountry.name + " is " + savedCountry.population
+  var capitalCityP = document.createElement("p");
+  capitalCityP.innerText = "The capital of " + savedCountry.name + " is " + savedCountry.capital
+  div.appendChild(nameHeading);
+  div.appendChild(populationP);
+  div.appendChild(capitalCityP);
+}
+
 
 window.addEventListener('load', init);
 
